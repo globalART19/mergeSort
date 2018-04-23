@@ -1,5 +1,4 @@
 function split(array) {
-  //array length/2
   let firstHalf = [];
   let secondHalf = [];
   let middleInteger = Math.ceil(array.length / 2);
@@ -21,24 +20,17 @@ function merge(arr1, arr2) {
 }
 
 function mergeSort(arr) {
-  const sortedArr;
-
-  //split
-  //base case:if return of the split is length 1
-  if(arr.length <= 1){
-   return arr;
+  let sortedArr
+  if (arr.length <= 1) {
+    return arr
   }
-  //otherwise: recurse - split half1, split half2
-  else{
-    //split
-    const splitArr = split(arr);
-    //sort
-    let sortedArr1 = mergeSort(splitArr[0]);
-    let sortedArr2 = mergeSort(splitArr[1]);
-    //merge
-    sortedArr = merge(sortedArr1,sortedArr2);   
+  else {
+    const splitArr = split(arr)
+    let sortedArr1 = mergeSort(splitArr[0])
+    let sortedArr2 = mergeSort(splitArr[1])
+    sortedArr = merge(sortedArr1, sortedArr2)
   }
 
-  return sortedArr;
+  return sortedArr
 }
 
